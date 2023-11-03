@@ -2,26 +2,17 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Net;
 using System.Reflection.Metadata.Ecma335;
+using System.Windows.Markup;
 
 #region Display and Read the UserInput
 /// Display the  message in the screen.
-
-Console.WriteLine("Welcome to the Calculator App!");
-Console.WriteLine("Hi, Welcome to the calculator App.");
-Console.WriteLine("Please select the below option in order to perform the operation");
-Console.WriteLine("1:Addition");
-Console.WriteLine("2:Substraction");
-Console.WriteLine("3:Multiplication");
-Console.WriteLine("4:Division");
-Console.WriteLine("5:Calculate the Average");
-Console.WriteLine("6:Generate the multiplication table of desired number");
-Console.WriteLine();
-Console.WriteLine("Please select  the one of the operation:");
+DisplayScreen();
 
 /// Store the user input which is called as variable.
 
-int userInput = int.Parse(Console.ReadLine());
-Console.WriteLine(userInput);
+int userInput = ReadUserInput();
+
+string user = string.Empty;
 
 #endregion
 
@@ -29,52 +20,52 @@ Console.WriteLine(userInput);
 
 #region IF AND ELSE CLAUSE USAGE
 
-if (userInput == 1)
-{
-    Console.WriteLine("Please enter the First Input");
-    double firstInput = double.Parse(Console.ReadLine());
-    Console.WriteLine("Please enter the Second Input");
-    double secondInput = double.Parse(Console.ReadLine());
-    var sum =   Addition(firstInput,secondInput);
-    Console.WriteLine($"The sum of {firstInput} and {secondInput} is : {sum}");
+//if (userInput == 1 )
+//{
+//    Console.WriteLine("Please enter the First Input");
+//    double firstInput = double.Parse(Console.ReadLine());
+//    Console.WriteLine("Please enter the Second Input");
+//    double secondInput = double.Parse(Console.ReadLine());
+//    var sum =   Addition(firstInput,secondInput);
+//    Console.WriteLine($"The sum of {firstInput} and {secondInput} is : {sum}");
   
-}
-else if (userInput == 2)
-{
-    Console.WriteLine("Please enter the First Input");
-    double firstInput = int.Parse(Console.ReadLine());
-    Console.WriteLine("Please enter the Second Input");
-    double secondInput = int.Parse(Console.ReadLine());
-    double difference = firstInput - secondInput;
-    Console.WriteLine($"The differnce  of {firstInput} and {secondInput} is : {sum}");
-}
-else if (userInput == 3)
-{
-    Console.WriteLine("Please enter the First Input");
-    double firstInput = int.Parse(Console.ReadLine());
-    Console.WriteLine("Please enter the Second Input");
-    double secondInput = int.Parse(Console.ReadLine());
-    double product = firstInput * secondInput;
-    Console.WriteLine($"The product  of {firstInput} and {secondInput} is : ");
-}
-else if (userInput == 4)
-{
-    Console.WriteLine("Please enter the First Input");
-    double firstInput = int.Parse(Console.ReadLine());
-    Console.WriteLine("Please enter the Second Input");
-    double secondInput = int.Parse(Console.ReadLine());
-    double quotient = firstInput / secondInput;
-    Console.WriteLine($" The {firstInput} divided by {secondInput} is :{quotient}");
-}
-else
-{
-    Console.WriteLine("Please enter the First Input");
-    double firstInput = int.Parse(Console.ReadLine());
-    Console.WriteLine("Please enter the Second Input");
-    double secondInput = int.Parse(Console.ReadLine());
-    double quotient = firstInput / secondInput;
-    Console.WriteLine($"The division of {firstInput} and {secondInput} is : {quotient}");
-}
+//}
+//else if (userInput == 2)
+//{
+//    Console.WriteLine("Please enter the First Input");
+//    double firstInput = int.Parse(Console.ReadLine());
+//    Console.WriteLine("Please enter the Second Input");
+//    double secondInput = int.Parse(Console.ReadLine());
+//    double difference = firstInput - secondInput;
+//    Console.WriteLine($"The differnce  of {firstInput} and {secondInput} is : {difference}");
+//}
+//else if (userInput == 3)
+//{
+//    Console.WriteLine("Please enter the First Input");
+//    double firstInput = int.Parse(Console.ReadLine());
+//    Console.WriteLine("Please enter the Second Input");
+//    double secondInput = int.Parse(Console.ReadLine());
+//    double product = firstInput * secondInput;
+//    Console.WriteLine($"The product  of {firstInput} and {secondInput} is : ");
+//}
+//else if (userInput == 4)
+//{
+//    Console.WriteLine("Please enter the First Input");
+//    double firstInput = int.Parse(Console.ReadLine());
+//    Console.WriteLine("Please enter the Second Input");
+//    double secondInput = int.Parse(Console.ReadLine());
+//    double quotient = firstInput / secondInput;
+//    Console.WriteLine($" The {firstInput} divided by {secondInput} is :{quotient}");
+//}
+//else
+//{
+//    //Console.WriteLine("Please enter the First Input");
+//    //double firstInput = int.Parse(Console.ReadLine());
+//    //Console.WriteLine("Please enter the Second Input");
+//    //double secondInput = int.Parse(Console.ReadLine());
+//    //double quotient = firstInput / secondInput;
+//    //Console.WriteLine($"The division of {firstInput} and {secondInput} is : {quotient}");
+//}
 
 #endregion
 
@@ -83,6 +74,7 @@ else
     double firstInputSwitchs = double.Parse(Console.ReadLine());
     Console.WriteLine("Please enter the Second Input");
     double secondInputSwitchs = double.Parse(Console.ReadLine());
+
     switch (userInput)
     {
 
@@ -104,9 +96,18 @@ else
             double div = firstInputSwitchs / firstInputSwitchs;
             Console.WriteLine($"The quotient  of {firstInputSwitchs} and {firstInputSwitchs} is : {div}");
             break;
+        case 7:
+            int[] array1 = new int[] { 2, 5, 9, 10 };
+            for(int i=0; i < array1.Length; i++)
+            {
+                GenerateMultiplicationTable(array1[0], secondInputSwitchs);
+            }
+            break;
         default:
             Console.WriteLine("The input is not valid!!!");
             break;
+
+        
     }
 #endregion
 
@@ -120,42 +121,82 @@ if (userInput == 6)
     double number = double.Parse(Console.ReadLine());
 
     Console.WriteLine();
-
-    for(int i=1; i <=number; i++)
-    {
-        Console.WriteLine($"Multiplication table of {multiple}");
-        Console.WriteLine($"T{multiple}*{i}={multiple * i}");
-    }
+    GenerateMultiplicationTable(multiple, number);
 }
 #endregion
 
 #region Function
 
-    double Addition(double firstInput, double secondInput)
+
+void GenerateMultiplicationTable(double multiple, double number){
+    for (int i = 1; i <= number; i++)
+    {
+        //Console.WriteLine($"Multiplication table of {multiple}");
+        Console.WriteLine($"{multiple}*{i}={multiple * i}");
+    }
+}
+double Addition(double firstInput, double secondInput)
 {
-    
+
     double sum = firstInput + secondInput;
     return sum;
 }
-    double Substraction(double firstInput, double secondInput)
+
+double Substraction(double firstInput, double secondInput)
+{
+    double differnce = firstInput - secondInput;
+    return differnce;
+
+}
+double Multiplication(double firstInput, double secondInput)
+{
+    double product = firstInput * secondInput;
+    return product;
+
+}
+double Division(double firstInput, double secondInput)
+{
+    double quotient = firstInput / secondInput;
+    return quotient;
+
+}
+
+void DisplayScreen()
+{
+    Console.WriteLine("Welcome to the Calculator App!");
+    Console.WriteLine("Hi, Welcome to the calculator App.");
+    Console.WriteLine("Please select the below option in order to perform the operation");
+    Console.WriteLine("1:Addition");
+    Console.WriteLine("2:Substraction");
+    Console.WriteLine("3:Multiplication");
+    Console.WriteLine("4:Division");
+    Console.WriteLine("5:Calculate the Average");
+    Console.WriteLine("6:Generate the multiplication table of desired number");
+    Console.WriteLine("7:Generate the multiplication table of desired number");
+    Console.WriteLine();
+    Console.WriteLine("Please select  the one of the operation:");
+}
+int ReadUserInput()
+{
+    try
     {
-        double differnce = firstInput - secondInput;
-        return differnce;
-    
+        int userInput = int.Parse(Console.ReadLine());
+        Console.WriteLine(userInput);
+        return userInput;
     }
-    double Multiplication(double firstInput, double secondInput)
+    catch (Exception)
     {
-        double product = firstInput*secondInput;
-        return product;
-    
+        Console.WriteLine("The input given by user is incorrect. Please provide input interms of integer.");
+        //throw;
     }
-    double Division(double firstInput, double secondInput)
-    {
-        double quotient = firstInput/secondInput;
-        return quotient;
+    return 0;
     
-    }
+}
 #endregion
+
+
+
+
 
 
 
