@@ -39,6 +39,7 @@ if (userInput == 1)
     Console.WriteLine($"The sum of {firstInput} and {secondInput} is : {sum}");
   
 }
+
 else if (userInput == 2)
 {
     Console.WriteLine("Please enter the First Input");
@@ -76,10 +77,41 @@ else
     Console.WriteLine($"The division of {firstInput} and {secondInput} is : {quotient}");
 }
 
+
+/*using System;
+
+class Program
+{
+    static void Main()
+    {
+        double firstInput = GetDoubleInput("Please enter the First Input");
+        double secondInput = GetDoubleInput("Please enter the Second Input");
+
+        Console.WriteLine($"First Input: {firstInput}");
+        Console.WriteLine($"Second Input: {secondInput}");
+    }
+
+    static double GetDoubleInput(string prompt)
+    {
+        Console.WriteLine(prompt);
+
+        if (double.TryParse(Console.ReadLine(), out double result))
+        {
+            return result;
+        }
+        else
+        {
+            Console.WriteLine("Invalid input. Please enter a valid number.");
+            return GetDoubleInput(prompt);
+        }
+    }
+}
+*/
+
 #endregion
 
 #region SWITCH STATEMENT
-    Console.WriteLine("Please enter the First Input");
+Console.WriteLine("Please enter the First Input");
     double firstInputSwitchs = double.Parse(Console.ReadLine());
     Console.WriteLine("Please enter the Second Input");
     double secondInputSwitchs = double.Parse(Console.ReadLine());
