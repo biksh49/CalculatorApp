@@ -1,4 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using CalculatorApp;
 using System.Diagnostics.CodeAnalysis;
 using System.Net;
 using System.Reflection.Metadata.Ecma335;
@@ -74,12 +75,15 @@ string user = string.Empty;
     double firstInputSwitchs = double.Parse(Console.ReadLine());
     Console.WriteLine("Please enter the Second Input");
     double secondInputSwitchs = double.Parse(Console.ReadLine());
+    Addition addition = new Addition();
+
 
     switch (userInput)
     {
 
         case 1:
-            double sum = Addition(firstInputSwitchs, secondInputSwitchs);
+            double sum = addition.Add(firstInputSwitchs,secondInputSwitchs);
+            double sums = addition.Add(firstInputSwitchs, secondInputSwitchs,4);
             double average = sum / 2;
             break;
 
@@ -135,12 +139,6 @@ void GenerateMultiplicationTable(double multiple, double number){
         Console.WriteLine($"{multiple}*{i}={multiple * i}");
     }
 }
-double Addition(double firstInput, double secondInput)
-{
-
-    double sum = firstInput + secondInput;
-    return sum;
-}
 
 double Substraction(double firstInput, double secondInput)
 {
@@ -172,6 +170,8 @@ void DisplayScreen()
     Console.WriteLine("4:Division");
     Console.WriteLine("5:Calculate the Average");
     Console.WriteLine("6:Generate the multiplication table of desired number");
+    // For example input :2,5,6,7
+    //Output : 2*1=2 ...2*10=20, 5*1=5 ....5*10=50,
     Console.WriteLine("7:Generate the multiplication table of desired number");
     Console.WriteLine();
     Console.WriteLine("Please select  the one of the operation:");
