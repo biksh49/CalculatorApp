@@ -39,6 +39,7 @@ if (userInput == 1)
     Console.WriteLine($"The sum of {firstInput} and {secondInput} is : {sum}");
   
 }
+
 else if (userInput == 2)
 {
     Console.WriteLine("Please enter the First Input");
@@ -46,7 +47,7 @@ else if (userInput == 2)
     Console.WriteLine("Please enter the Second Input");
     double secondInput = int.Parse(Console.ReadLine());
     double difference = firstInput - secondInput;
-    Console.WriteLine($"The differnce  of {firstInput} and {secondInput} is : {sum}");
+    Console.WriteLine($"The differnce  of {firstInput} and {secondInput} is :");
 }
 else if (userInput == 3)
 {
@@ -76,10 +77,41 @@ else
     Console.WriteLine($"The division of {firstInput} and {secondInput} is : {quotient}");
 }
 
+
+/*using System;
+
+class Program
+{
+    static void Main()
+    {
+        double firstInput = GetDoubleInput("Please enter the First Input");
+        double secondInput = GetDoubleInput("Please enter the Second Input");
+
+        Console.WriteLine($"First Input: {firstInput}");
+        Console.WriteLine($"Second Input: {secondInput}");
+    }
+
+    static double GetDoubleInput(string prompt)
+    {
+        Console.WriteLine(prompt);
+
+        if (double.TryParse(Console.ReadLine(), out double result))
+        {
+            return result;
+        }
+        else
+        {
+            Console.WriteLine("Invalid input. Please enter a valid number.");
+            return GetDoubleInput(prompt);
+        }
+    }
+}
+*/
+
 #endregion
 
 #region SWITCH STATEMENT
-    Console.WriteLine("Please enter the First Input");
+Console.WriteLine("Please enter the First Input");
     double firstInputSwitchs = double.Parse(Console.ReadLine());
     Console.WriteLine("Please enter the Second Input");
     double secondInputSwitchs = double.Parse(Console.ReadLine());
@@ -155,6 +187,28 @@ if (userInput == 6)
         return quotient;
     
     }
+
+// array program
+int i, num;
+int[] arr1 = new int[100];
+
+Console.WriteLine("Input the number of arrays you want");   //asking for the number of arrays
+num = Convert.ToInt32(Console.ReadLine());
+
+Console.WriteLine("Enter the data one by one for {0}", num);
+
+Console.WriteLine("Input {0} of arrays you want ", num);   //printing the arrays 1 by 1
+for (i = 0; i < num; i++)
+{
+    Console.WriteLine("element - {0} : ", i);
+    arr1[i] = Convert.ToInt32(Console.ReadLine());
+}
+
+Console.WriteLine("The values store into the array are :");  //prining the values stored
+for (i = 0; i < num; i++)
+{
+    Console.Write("{0}  ", arr1[i]);
+}
 #endregion
 
 
