@@ -46,7 +46,7 @@ else if (userInput == 2)
     Console.WriteLine("Please enter the Second Input");
     double secondInput = int.Parse(Console.ReadLine());
     double difference = firstInput - secondInput;
-    Console.WriteLine($"The differnce  of {firstInput} and {secondInput} is : {sum}");
+    Console.WriteLine($"The differnce  of {firstInput} and {secondInput} is : {difference}");
 }
 else if (userInput == 3)
 {
