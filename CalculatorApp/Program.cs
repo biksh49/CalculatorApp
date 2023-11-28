@@ -35,7 +35,8 @@ if (userInput == 1)
     double firstInput = double.Parse(Console.ReadLine());
     Console.WriteLine("Please enter the Second Input");
     double secondInput = double.Parse(Console.ReadLine());
-    var sum =   Addition(firstInput,secondInput);
+    //var sum =   Addition(firstInput,secondInput);
+    double sum = firstInput + secondInput;
     Console.WriteLine($"The sum of {firstInput} and {secondInput} is : {sum}");
   
 }
@@ -46,7 +47,7 @@ else if (userInput == 2)
     Console.WriteLine("Please enter the Second Input");
     double secondInput = int.Parse(Console.ReadLine());
     double difference = firstInput - secondInput;
-    Console.WriteLine($"The differnce  of {firstInput} and {secondInput} is : {sum}");
+    Console.WriteLine($"The differnce  of {firstInput} and {secondInput} is : {difference}");
 }
 else if (userInput == 3)
 {
@@ -55,18 +56,10 @@ else if (userInput == 3)
     Console.WriteLine("Please enter the Second Input");
     double secondInput = int.Parse(Console.ReadLine());
     double product = firstInput * secondInput;
-    Console.WriteLine($"The product  of {firstInput} and {secondInput} is : ");
+    Console.WriteLine($"The product or multiplication  of {firstInput} and {secondInput} is : {product} ");
 }
+
 else if (userInput == 4)
-{
-    Console.WriteLine("Please enter the First Input");
-    double firstInput = int.Parse(Console.ReadLine());
-    Console.WriteLine("Please enter the Second Input");
-    double secondInput = int.Parse(Console.ReadLine());
-    double quotient = firstInput / secondInput;
-    Console.WriteLine($" The {firstInput} divided by {secondInput} is :{quotient}");
-}
-else
 {
     Console.WriteLine("Please enter the First Input");
     double firstInput = int.Parse(Console.ReadLine());
@@ -76,10 +69,21 @@ else
     Console.WriteLine($"The division of {firstInput} and {secondInput} is : {quotient}");
 }
 
+else
+{
+    Console.WriteLine("Please enter the First Input");
+    double firstInput = int.Parse(Console.ReadLine());
+    Console.WriteLine("Please enter the Second Input");
+    double secondInput = int.Parse(Console.ReadLine());
+    double average = (firstInput +secondInput)/2;
+    Console.WriteLine($"The division of {firstInput} and {secondInput} is : {average}");
+}
+
+
 #endregion
 
 #region SWITCH STATEMENT
-    Console.WriteLine("Please enter the First Input");
+Console.WriteLine("Please enter the First Input");
     double firstInputSwitchs = double.Parse(Console.ReadLine());
     Console.WriteLine("Please enter the Second Input");
     double secondInputSwitchs = double.Parse(Console.ReadLine());
