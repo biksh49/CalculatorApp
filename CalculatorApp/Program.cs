@@ -1,169 +1,164 @@
 ﻿// See https://aka.ms/new-console-template for more information
-using System.Diagnostics.CodeAnalysis;
-using System.Net;
-using System.Reflection.Metadata.Ecma335;
 
-#region Display and Read the UserInput
-/// Display the  message in the screen.
 
-Console.WriteLine("Welcome to the Calculator App!");
-Console.WriteLine("Hi, Welcome to the calculator App.");
-Console.WriteLine("Please select the below option in order to perform the operation");
-Console.WriteLine("1:Addition");
-Console.WriteLine("2:Substraction");
-Console.WriteLine("3:Multiplication");
-Console.WriteLine("4:Division");
-Console.WriteLine("5:Calculate the Average");
-Console.WriteLine("6:Generate the multiplication table of desired number");
-Console.WriteLine();
-Console.WriteLine("Please select  the one of the operation:");
+using CalculatorApp;
 
-/// Store the user input which is called as variable.
-
+Message();
 int userInput = int.Parse(Console.ReadLine());
 Console.WriteLine(userInput);
 
-#endregion
 
-// perform the operation on the basis of userInput using if and else.
-
-#region IF AND ELSE CLAUSE USAGE
+Addition add = new Addition();
 
 if (userInput == 1)
 {
-    Console.WriteLine("Please enter the First Input");
-    double firstInput = double.Parse(Console.ReadLine());
-    Console.WriteLine("Please enter the Second Input");
-    double secondInput = double.Parse(Console.ReadLine());
-    var sum =   Addition(firstInput,secondInput);
-    Console.WriteLine($"The sum of {firstInput} and {secondInput} is : {sum}");
-  
+
+    Console.WriteLine("Please input the first Number");
+
+    double firtNumber = double.Parse(Console.ReadLine());
+
+    Console.WriteLine("Please input the second Number");
+
+    double secondNumber = double.Parse(Console.ReadLine());
+
+    double additionValue = add.Add(firtNumber, secondNumber); ///Addition(firtNumber, secondNumber);
+    Console.WriteLine("Total Addition value is " + additionValue);
+    Console.WriteLine($"Total Addition value is  {additionValue}");////String polation in C#
+    Console.WriteLine("Total Addition value of {0} and {1} is", firtNumber, secondNumber, additionValue);
 }
 else if (userInput == 2)
 {
-    Console.WriteLine("Please enter the First Input");
-    double firstInput = int.Parse(Console.ReadLine());
-    Console.WriteLine("Please enter the Second Input");
-    double secondInput = int.Parse(Console.ReadLine());
-    double difference = firstInput - secondInput;
-    Console.WriteLine($"The differnce  of {firstInput} and {secondInput} is : {difference}");
+
+    Console.WriteLine("Please input the first Number");
+
+    double firtNumber = double.Parse(Console.ReadLine());
+
+    Console.WriteLine("Please input the second Number");
+    double secondNumber = double.Parse(Console.ReadLine());
+
+    double diffValue = Subtraction(firtNumber, secondNumber);
+    Console.WriteLine("Total Subtracted value is " + diffValue);
+
 }
 else if (userInput == 3)
 {
-    Console.WriteLine("Please enter the First Input");
-    double firstInput = int.Parse(Console.ReadLine());
-    Console.WriteLine("Please enter the Second Input");
-    double secondInput = int.Parse(Console.ReadLine());
-    double product = firstInput * secondInput;
-    Console.WriteLine($"The product  of {firstInput} and {secondInput} is : ");
+
+    Console.WriteLine("Please input the first Number");
+
+    double firtNumber = double.Parse(Console.ReadLine());
+
+    Console.WriteLine("Please input the second Number");
+    double secondNumber = double.Parse(Console.ReadLine());
+
+    double value = Multiplication(firtNumber, secondNumber);
+    Console.WriteLine("Total Multiplication value is " + value);
+
 }
+
 else if (userInput == 4)
 {
-    Console.WriteLine("Please enter the First Input");
-    double firstInput = int.Parse(Console.ReadLine());
-    Console.WriteLine("Please enter the Second Input");
-    double secondInput = int.Parse(Console.ReadLine());
-    double quotient = firstInput / secondInput;
-    Console.WriteLine($" The {firstInput} divided by {secondInput} is :{quotient}");
+
+    Console.WriteLine("Please input the first Number");
+
+    double firtNumber = double.Parse(Console.ReadLine());
+
+    Console.WriteLine("Please input the second Number");
+    double secondNumber = double.Parse(Console.ReadLine());
+
+    double value = Division(firtNumber, secondNumber);
+    Console.WriteLine("Total Division value is " + value);
+
+}
+
+else if (userInput == 5)
+{
+
+    Console.WriteLine("Please input the first Number");
+
+    double firtNumber = double.Parse(Console.ReadLine());
+
+    Console.WriteLine("Please input the second Number");
+    double secondNumber = double.Parse(Console.ReadLine());
+
+    double additionValue = add.Average(firtNumber, secondNumber);
+    Console.WriteLine("Total Division value is " + additionValue);
+
+}
+
+else if (userInput == 6)
+{
+
+    Console.WriteLine("Please input the first Number");
+
+    int firtNumber = int.Parse(Console.ReadLine());
+
+    MultiplicationTable(firtNumber);
+
+
+
+
+
+
 }
 else
 {
-    Console.WriteLine("Please enter the First Input");
-    double firstInput = int.Parse(Console.ReadLine());
-    Console.WriteLine("Please enter the Second Input");
-    double secondInput = int.Parse(Console.ReadLine());
-    double quotient = firstInput / secondInput;
-    Console.WriteLine($"The division of {firstInput} and {secondInput} is : {quotient}");
+    Console.WriteLine("Please select valid operation value");
 }
 
-#endregion
 
-#region SWITCH STATEMENT
-    Console.WriteLine("Please enter the First Input");
-    double firstInputSwitchs = double.Parse(Console.ReadLine());
-    Console.WriteLine("Please enter the Second Input");
-    double secondInputSwitchs = double.Parse(Console.ReadLine());
-    switch (userInput)
-    {
-
-        case 1:
-            double sum = Addition(firstInputSwitchs, secondInputSwitchs);
-            double average = sum / 2;
-            break;
-
-        case 2:
-
-            double subtract = firstInputSwitchs - firstInputSwitchs;
-            Console.WriteLine($"The differnce  of {firstInputSwitchs} and {firstInputSwitchs} is : {subtract}");
-            break;
-        case 3:
-            double product = firstInputSwitchs * firstInputSwitchs;
-            Console.WriteLine($"The product  of {firstInputSwitchs} and {firstInputSwitchs} is : {product}");
-            break;
-        case 4:
-            double div = firstInputSwitchs / firstInputSwitchs;
-            Console.WriteLine($"The quotient  of {firstInputSwitchs} and {firstInputSwitchs} is : {div}");
-            break;
-        default:
-            Console.WriteLine("The input is not valid!!!");
-            break;
-    }
-#endregion
-
-#region USE OF LOOP
-if (userInput == 6)
+void Message()
 {
-    Console.WriteLine("Please enter the number to generate the multplication table: ");
-    double multiple = double.Parse(Console.ReadLine()); 
+    Console.WriteLine("Hello, World!");
 
-    Console.WriteLine("Please enter the end number: ");
-    double number = double.Parse(Console.ReadLine());
-
+    Console.WriteLine("Welcome to the Calculator App!");
+    Console.WriteLine("Hi, Welcome to the calculator App.");
+    Console.WriteLine("Please select the below option in order to perform the operation");
+    Console.WriteLine("1:Addition");
+    Console.WriteLine("2:Substraction");
+    Console.WriteLine("3:Multiplication");
+    Console.WriteLine("4:Division");
+    Console.WriteLine("5:Calculate the Average");
+    Console.WriteLine("6:Generate the multiplication table of desired number");
     Console.WriteLine();
-
-    for(int i=1; i <=number; i++)
-    {
-        Console.WriteLine($"Multiplication table of {multiple}");
-        Console.WriteLine($"T{multiple}*{i}={multiple * i}");
-    }
+    Console.WriteLine("Please select  the one of the operation:");
 }
-#endregion
 
-#region Function
+//double Addition(double firtNumber, double secondNumber)
+//{
 
-    double Addition(double firstInput, double secondInput)
+//    double sum = firtNumber + secondNumber;
+//    return sum;
+//}
+
+double Subtraction(double firtNumber, double secondNumber)
 {
-    
-    double sum = firstInput + secondInput;
-    return sum;
+
+    double diff = firtNumber - secondNumber;
+    return diff;
 }
-    double Substraction(double firstInput, double secondInput)
+
+
+double Multiplication(double firtNumber, double secondNumber)
+{
+
+    double value = firtNumber * secondNumber;
+    return value;
+}
+
+double Division(double firtNumber, double secondNumber)
+{
+
+    double value = firtNumber / secondNumber;
+    return value;
+}
+
+
+
+void MultiplicationTable(double firtNumber)
+{
+    for (int i = 1; i <= 10; i++)
     {
-        double differnce = firstInput - secondInput;
-        return differnce;
-    
+        Console.WriteLine(firtNumber + " X " + i + " = " + (firtNumber * i));
+
     }
-    double Multiplication(double firstInput, double secondInput)
-    {
-        double product = firstInput*secondInput;
-        return product;
-    
-    }
-    double Division(double firstInput, double secondInput)
-    {
-        double quotient = firstInput/secondInput;
-        return quotient;
-    
-    }
-#endregion
-
-
-
-
-
-
-
-
-
-
-
+}
