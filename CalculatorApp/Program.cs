@@ -108,7 +108,26 @@ else
 
 void Message()
 {
-    Console.WriteLine("Hello, World!");
+    string dt=DateTime.Now.ToString("HH");
+   
+
+    if (Convert.ToInt32(dt) < 12)
+    {
+        Console.WriteLine("Hello, Good Morning");
+
+    }
+
+    else if (Convert.ToInt32(dt)>12 && Convert.ToInt32(dt) < 18)
+    {
+        Console.WriteLine("Hello, Good After Noon");
+
+    }
+
+    else
+    {
+        Console.WriteLine("Hello, Good Evening");
+    }
+
 
     Console.WriteLine("Welcome to the Calculator App!");
     Console.WriteLine("Hi, Welcome to the calculator App.");
