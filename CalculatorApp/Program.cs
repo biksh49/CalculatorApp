@@ -5,7 +5,9 @@ using CalculatorApp;
 
 Message();
 int userInput = int.Parse(Console.ReadLine());
-Console.WriteLine(userInput);
+
+
+//Console.WriteLine(userInput);
 
 
 Addition add = new Addition();
