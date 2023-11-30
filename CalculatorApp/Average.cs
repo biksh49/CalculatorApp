@@ -1,0 +1,18 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CalculatorApp
+{
+    internal class Average:Addition
+    {
+        
+        public double CalculateAverge()
+        {
+           
+            return 0;
+        }
+    }
+}

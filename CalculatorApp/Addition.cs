@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection.Metadata.Ecma335;
 using System.Text;
@@ -17,14 +18,23 @@ namespace CalculatorApp
         // Function name
         // Parameter count
         // parmater datatype
-
+        double sum = 0;
         public double Add(double firstInput, double secondInput)
         {
 
             double sum = firstInput + secondInput;
+            
             return sum;
         }
-     
+        
+        //public double Add(double[] inputArray)
+        //{
+
+        //    double sum = firstInput + secondInput;
+        //    return sum;
+        //}
+
+
         public double Add(double firstInput,double secondInput, double thirdInput)
         {
             double sum= firstInput + secondInput+thirdInput;

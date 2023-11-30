@@ -70,50 +70,72 @@ string user = string.Empty;
 
 #endregion
 
-#region SWITCH STATEMENT
-    Console.WriteLine("Please enter the First Input");
-    double firstInputSwitchs = double.Parse(Console.ReadLine());
-    Console.WriteLine("Please enter the Second Input");
-    double secondInputSwitchs = double.Parse(Console.ReadLine());
-    Addition addition = new Addition();
+//#region SWITCH STATEMENT
+//    //Console.WriteLine("Please enter the First Input");
+//    //double firstInputSwitchs = double.Parse(Console.ReadLine());
+//    //Console.WriteLine("Please enter the Second Input");
+//    //double secondInputSwitchs = double.Parse(Console.ReadLine());
+//    Addition addition = new Addition();
 
 
-    switch (userInput)
-    {
+//    switch (userInput)
+//    {
 
-        case 1:
-            double sum = addition.Add(firstInputSwitchs,secondInputSwitchs);
-            double sums = addition.Add(firstInputSwitchs, secondInputSwitchs,4);
-            double average = sum / 2;
-            break;
+//        case 1:
+//            double sum = addition.Add(firstInputSwitchs,secondInputSwitchs);
+//            double sums = addition.Add(firstInputSwitchs, secondInputSwitchs,4);
+//            double average = sum / 2;
+//            break;
 
-        case 2:
+//        case 2:
 
-            double subtract = firstInputSwitchs - firstInputSwitchs;
-            Console.WriteLine($"The differnce  of {firstInputSwitchs} and {firstInputSwitchs} is : {subtract}");
-            break;
-        case 3:
-            double product = firstInputSwitchs * firstInputSwitchs;
-            Console.WriteLine($"The product  of {firstInputSwitchs} and {firstInputSwitchs} is : {product}");
-            break;
-        case 4:
-            double div = firstInputSwitchs / firstInputSwitchs;
-            Console.WriteLine($"The quotient  of {firstInputSwitchs} and {firstInputSwitchs} is : {div}");
-            break;
-        case 7:
-            int[] array1 = new int[] { 2, 5, 9, 10 };
-            for(int i=0; i < array1.Length; i++)
-            {
-                GenerateMultiplicationTable(array1[0], secondInputSwitchs);
-            }
-            break;
-        default:
-            Console.WriteLine("The input is not valid!!!");
-            break;
+//            double subtract = firstInputSwitchs - firstInputSwitchs;
+//            Console.WriteLine($"The differnce  of {firstInputSwitchs} and {firstInputSwitchs} is : {subtract}");
+//            break;
+//        case 3:
+//            double product = firstInputSwitchs * firstInputSwitchs;
+//            Console.WriteLine($"The product  of {firstInputSwitchs} and {firstInputSwitchs} is : {product}");
+//            break;
+//        case 4:
+//            double div = firstInputSwitchs / firstInputSwitchs;
+//            Console.WriteLine($"The quotient  of {firstInputSwitchs} and {firstInputSwitchs} is : {div}");
+//            break;
+//        case 7:
+//            int[] array1 = new int[] { 2, 5, 9, 10 };
+//            for(int i=0; i < array1.Length; i++)
+//            {
+//                GenerateMultiplicationTable(array1[0], secondInputSwitchs);
+//            }
+//            break;
+
+       
+
+//        default:
+//            Console.WriteLine("The input is not valid!!!");
+//            break;
 
         
+//    }
+//#endregion
+
+if (userInput == 8)
+{
+    Console.WriteLine("Please provide the number limit in order to add");
+    int inputNumber = int.Parse(Console.ReadLine());
+    int sum = 0;
+
+    for(int i = 0; i < inputNumber; i++)
+    {
+        Console.WriteLine($"Enter the {i+1} number");
+        int input=int.Parse(Console.ReadLine());
+        sum=sum+input;
+        
     }
-#endregion
+    Console.WriteLine($"The sum of above is {sum}");
+
+
+    
+}
 
 #region USE OF LOOP
 if (userInput == 6)
@@ -173,6 +195,7 @@ void DisplayScreen()
     // For example input :2,5,6,7
     //Output : 2*1=2 ...2*10=20, 5*1=5 ....5*10=50,
     Console.WriteLine("7:Generate the multiplication table of desired number");
+    Console.WriteLine("8:Add numbers");
     Console.WriteLine();
     Console.WriteLine("Please select  the one of the operation:");
 }
@@ -181,7 +204,7 @@ int ReadUserInput()
     try
     {
         int userInput = int.Parse(Console.ReadLine());
-        Console.WriteLine(userInput);
+        //Console.WriteLine(userInput);
         return userInput;
     }
     catch (Exception)
