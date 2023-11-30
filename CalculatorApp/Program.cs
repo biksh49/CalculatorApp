@@ -3,6 +3,8 @@ using System.Diagnostics.CodeAnalysis;
 using System.Net;
 using System.Reflection.Metadata.Ecma335;
 
+Console.WriteLine("Welcome!!!");
+
 #region Display and Read the UserInput
 /// Display the  message in the screen.
 
@@ -160,7 +162,37 @@ if (userInput == 6)
 #endregion
 
 // Changes done by raju
-
+//using function
+#region function
+Console.WriteLine("Pleae enter the selection of number");
+Console.WriteLine("1:Addition");
+Console.WriteLine("2:Substraction");
+    //using if and else
+int userinput = int.Parse(Console.ReadLine());
+Addition addition = new Addition();
+if (userinput == 1)
+{
+    Console.WriteLine("Please input first number");
+    int firstinput = int.Parse(Console.ReadLine());
+    Console.WriteLine("Please enter second input");
+    int secondinput = int.Parse(Console.ReadLine());
+    double sum=double.Parse(Console.ReadLine());
+    double sum = addition.add($"The sum of first input {firstinput} and second input {secondinput} is: {sum}");
+}
+else if (userinput == 2)
+{
+    Console.WriteLine("Please input first number");
+    int firstinput = int.Parse(Console.ReadLine());
+    Console.WriteLine("Please enter second input");
+    int secondinput = int.Parse(Console.ReadLine());
+    int diff = int.Parse(Console.ReadLine());
+    double sum = addition.add($"The difference of first input {firstinput} and second input {secondinput} is: {diff}");
+}
+else
+{
+    Console.WriteLine("The user has input wrong operation");
+}
+#endregion
 
 
 
