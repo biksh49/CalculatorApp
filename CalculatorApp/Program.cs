@@ -15,13 +15,15 @@ Console.WriteLine("3:Multiplication");
 Console.WriteLine("4:Division");
 Console.WriteLine("5:Calculate the Average");
 Console.WriteLine("6:Generate the multiplication table of desired number");
+Console.WriteLine("7:Generate the multiplication table of desired number");
+Console.WriteLine("8:Add numbers");
 Console.WriteLine();
 Console.WriteLine("Please select  the one of the operation:");
 
 /// Store the user input which is called as variable.
 
 int userInput = int.Parse(Console.ReadLine());
-Console.WriteLine(userInput);
+//Console.WriteLine(userInput);
 
 #endregion
 
@@ -35,7 +37,7 @@ if (userInput == 1)
     double firstInput = double.Parse(Console.ReadLine());
     Console.WriteLine("Please enter the Second Input");
     double secondInput = double.Parse(Console.ReadLine());
-    var sum =   Addition(firstInput,secondInput);
+    var sum = Addition(firstInput,secondInput);
     Console.WriteLine($"The sum of {firstInput} and {secondInput} is : {sum}");
   
 }
@@ -46,7 +48,7 @@ else if (userInput == 2)
     Console.WriteLine("Please enter the Second Input");
     double secondInput = int.Parse(Console.ReadLine());
     double difference = firstInput - secondInput;
-    Console.WriteLine($"The differnce  of {firstInput} and {secondInput} is : {sum}");
+    Console.WriteLine($"The differnce  of {firstInput} and {secondInput} is : {difference}");
 }
 else if (userInput == 3)
 {
@@ -55,7 +57,7 @@ else if (userInput == 3)
     Console.WriteLine("Please enter the Second Input");
     double secondInput = int.Parse(Console.ReadLine());
     double product = firstInput * secondInput;
-    Console.WriteLine($"The product  of {firstInput} and {secondInput} is : ");
+    Console.WriteLine($"The product  of {firstInput} and {secondInput} is :{product} ");
 }
 else if (userInput == 4)
 {
@@ -72,8 +74,8 @@ else
     double firstInput = int.Parse(Console.ReadLine());
     Console.WriteLine("Please enter the Second Input");
     double secondInput = int.Parse(Console.ReadLine());
-    double quotient = firstInput / secondInput;
-    Console.WriteLine($"The division of {firstInput} and {secondInput} is : {quotient}");
+    double average = (firstInput+secondInput)/2;
+    Console.WriteLine($"The average of {firstInput} and {secondInput} is : {average}");
 }
 
 #endregion
@@ -94,15 +96,15 @@ else
         case 2:
 
             double subtract = firstInputSwitchs - firstInputSwitchs;
-            Console.WriteLine($"The differnce  of {firstInputSwitchs} and {firstInputSwitchs} is : {subtract}");
+            Console.WriteLine($"The differnce  of {firstInputSwitchs} and {secondInputSwitchs} is : {subtract}");
             break;
         case 3:
             double product = firstInputSwitchs * firstInputSwitchs;
-            Console.WriteLine($"The product  of {firstInputSwitchs} and {firstInputSwitchs} is : {product}");
+            Console.WriteLine($"The product  of {firstInputSwitchs} and {secondInputSwitchs} is : {product}");
             break;
         case 4:
             double div = firstInputSwitchs / firstInputSwitchs;
-            Console.WriteLine($"The quotient  of {firstInputSwitchs} and {firstInputSwitchs} is : {div}");
+            Console.WriteLine($"The quotient  of {firstInputSwitchs} and {secondInputSwitchs} is : {div}");
             break;
         default:
             Console.WriteLine("The input is not valid!!!");
@@ -157,7 +159,7 @@ if (userInput == 6)
     }
 #endregion
 
-
+// Changes done by raju
 
 
 
