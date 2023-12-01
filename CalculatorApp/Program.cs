@@ -2,6 +2,7 @@
 
 
 using CalculatorApp;
+using System.ComponentModel;
 
 Message();
 int userInput = int.Parse(Console.ReadLine());
@@ -15,18 +16,15 @@ Addition add = new Addition();
 if (userInput == 1)
 {
 
-    Console.WriteLine("Please input the first Number");
+    Console.WriteLine("How many digit you wanna put?");
 
-    double firtNumber = double.Parse(Console.ReadLine());
+    int requiredNumber = int.Parse(Console.ReadLine());
 
-    Console.WriteLine("Please input the second Number");
 
-    double secondNumber = double.Parse(Console.ReadLine());
-
-    double additionValue = add.Add(firtNumber, secondNumber); ///Addition(firtNumber, secondNumber);
+    double additionValue = add.Add(requiredNumber); ///Addition(firtNumber, secondNumber);
     Console.WriteLine("Total Addition value is " + additionValue);
     Console.WriteLine($"Total Addition value is  {additionValue}");////String polation in C#
-    Console.WriteLine("Total Addition value of {0} and {1} is", firtNumber, secondNumber, additionValue);
+    ///Console.WriteLine("Total Addition value of {0} and {1} is", firtNumber, secondNumber, additionValue);
 }
 else if (userInput == 2)
 {
@@ -131,6 +129,17 @@ void Message()
     }
 
 
+
+    //int[] array = new[] { 1, 2, 3, 4, 5, 6, 7,8 };
+
+    //for (int i = 0; i < array.Length; i++)
+    //{
+    //    Console.WriteLine(array[i]);
+
+    //}
+
+
+
     Console.WriteLine("Welcome to the Calculator App!");
     Console.WriteLine("Hi, Welcome to the calculator App.");
     Console.WriteLine("Please select the below option in order to perform the operation");
@@ -144,12 +153,7 @@ void Message()
     Console.WriteLine("Please select  the one of the operation:");
 }
 
-//double Addition(double firtNumber, double secondNumber)
-//{
 
-//    double sum = firtNumber + secondNumber;
-//    return sum;
-//}
 
 double Subtraction(double firtNumber, double secondNumber)
 {
