@@ -11,17 +11,20 @@ if (GreetingTime.Hour >= 4 && GreetingTime.Hour < 12)
 {
     Console.WriteLine("Good morning");
 }
-else if (GreetingTime.Hour >= 12 && GreetingTime.Hour <= 6)
+else if (GreetingTime.Hour >= 12 && GreetingTime.Hour <= 18)
 {
     Console.WriteLine("Good afternoon");
 }
-else if (GreetingTime.Hour >= 6 && GreetingTime.Hour <= 4)
+else if (GreetingTime.Hour >= 18 && GreetingTime.Hour <= 23)
 {
     Console.WriteLine("Good evening");
 }
 /// Display the  message in the screen.
 
-Console.WriteLine("{0} Welcome to the Calculator App!", GreetingTime);
+var currentDate = DateTime.Now.ToString("d-MMM-yyyy");
+//need to convert string date to date time data type 
+
+Console.WriteLine("Today is {0}. Welcome to the Calculator App!", DateTime.Now.ToString("d-MMM-yyyy"));
 Console.WriteLine("Hi, Welcome to the calculator App.");
 Console.WriteLine("Please select the below option in order to perform the operation");
 Console.WriteLine("1:Addition");
@@ -33,10 +36,73 @@ Console.WriteLine("6:Generate the multiplication table of desired number");
 Console.WriteLine();
 Console.WriteLine("Please select  the one of the operation:");
 
+// addition 
+
+Console.WriteLine("Enter how many numbes you want to give");
+int userInput = int.Parse(Console.ReadLine());
+
+int[] num = new int[userInput];
+int sum = 0;
+
+for (int i = 0; i < userInput; i++)
+{
+    Console.WriteLine($"Your {i+1} number is");
+    int ans = int.Parse(Console.ReadLine());
+    num[i] = ans;  //storing the number
+    sum = sum + ans;     //adding the number
+}
+Console.WriteLine($"The sum of {string.Join("+", num)} is: {sum}");
+
+string.Join("+", num);
+
+
+//subtraction
+
+Console.WriteLine("Enter how many numbers you want to give");
+int userInput2 = int.Parse(Console.ReadLine());
+int[] num2 = new int[userInput2];
+int difference = 0;
+
+for (int i = 0; i< userInput2; i++)
+{
+    Console.WriteLine($"Your {i + 1} number is");
+    int ans2 = int.Parse(Console.ReadLine());
+    if(ans2 +1 > ans2)
+    {
+        Console.WriteLine("Number you enter cannot be larger than prevous");
+    }
+    num2[i] = ans2;
+    difference = difference - ans2;
+}
+Console.WriteLine($"The difference of {string.Join("-", num2)} is: {difference}");
+
+
+
+
+
+
+
+//if (userInput == 8)
+//{
+//    Console.WriteLine("Please provide the number limit in order to add");
+//    int inputNumber = int.Parse(Console.ReadLine());
+//    int sum = 0;
+
+//    for (int i = 0; i < inputNumber; i++)
+//    {
+//        Console.WriteLine($"Enter the {i + 1} number");
+//        int input = int.Parse(Console.ReadLine());
+//        sum = sum + input;
+
+//    }
+//    Console.WriteLine($"The sum of above is {sum}");
+//}
+
+
 /// Store the user input which is called as variable.
 
-int userInput = int.Parse(Console.ReadLine());
-Console.WriteLine(userInput);
+//int userInput = int.Parse(Console.ReadLine());
+//Console.WriteLine(userInput);
 
 #endregion
 
@@ -52,7 +118,7 @@ Console.WriteLine(userInput);
 //    double secondInput = double.Parse(Console.ReadLine());
 //    var sum =   Addition(firstInput,secondInput);
 //    Console.WriteLine($"The sum of {firstInput} and {secondInput} is : {sum}");
-  
+
 //}
 
 //else if (userInput == 2)
@@ -180,7 +246,7 @@ Console.WriteLine(userInput);
 
 //    double Addition(double firstInput, double secondInput)
 //{
-    
+
 //    double sum = firstInput + secondInput;
 //    return sum;
 //}
@@ -188,19 +254,19 @@ Console.WriteLine(userInput);
 //    {
 //        double differnce = firstInput - secondInput;
 //        return differnce;
-    
+
 //    }
 //    double Multiplication(double firstInput, double secondInput)
 //    {
 //        double product = firstInput*secondInput;
 //        return product;
-    
+
 //    }
 //    double Division(double firstInput, double secondInput)
 //    {
 //        double quotient = firstInput/secondInput;
 //        return quotient;
-    
+
 //    }
 
 //// array program
